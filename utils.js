@@ -1,3 +1,5 @@
+const assert = require('assert')
+
 /**
  * Convert `HH:MM` or `HH:MM AM/PM` to minutes from midnight.
  * Return Number on success or null if not recognized.
@@ -23,6 +25,20 @@ const tsToMinutesFromMidnight = (ts) => {
   }
 }
 
+const zip = (arr1, arr2) =>{
+  assert(
+    typeof(arr1) === 'object' && typeof(arr1.length) === 'number',
+    'arr1 is not a valid array'  
+  )
+  assert(
+    typeof(arr2) === 'object' && typeof(arr2.length) === 'number',
+    'arr2 is not a valid array'  
+  )
+  assert(arr1.length === arr2.length, 'Arrays must be of same size')
+  return arr1.map((e, i) => [e, arr2[i]])
+}
+
 module.exports = {
-  tsToMinutesFromMidnight
+  tsToMinutesFromMidnight,
+  zip
 }
