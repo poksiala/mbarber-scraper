@@ -20,10 +20,10 @@ describe('zip', () => {
   })
 
   describe('should throw with invalid input', () => {
-    
+
     test('arrays of different size', () => {
-      expect(() => 
-        zip([1, 2], [1, 2, 3])  
+      expect(() =>
+        zip([1, 2], [1, 2, 3])
       ).toThrow()
     })
 
@@ -56,7 +56,7 @@ describe('zip', () => {
         zip([])
       }).toThrow()
     })
-    
+
     test('objects', () => {
       expect(() => {
         zip({}, {})

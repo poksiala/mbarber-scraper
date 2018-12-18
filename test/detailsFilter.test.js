@@ -2,10 +2,10 @@ const detailsFilter = require('./../detailsFilter')
 
 describe('detailsFilter', () => {
   describe('With valid input...', () => {
-    
+
     test('Works correctly when finnish store is closed', () => {
       const data = JSON.parse(validJsonFinnishClosed)
-      const expected = { 
+      const expected = {
         slug: 'espoo-tapiola',
         name: 'Tapiola',
         city: 'Espoo',
@@ -19,7 +19,7 @@ describe('detailsFilter', () => {
         monday: [540, 1140],
         sunday: null,
         lat: '60.17553549999999',
-        long: '24.80225680000001', 
+        long: '24.80225680000001',
       }
 
       expect(detailsFilter(data)).toEqual(expected)
@@ -41,7 +41,7 @@ describe('detailsFilter', () => {
         monday: [540, 1020],
         sunday: null,
         lat: '26.200283',
-        long: '-81.800330' 
+        long: '-81.800330'
       }
       expect(detailsFilter(data)).toEqual(expected)
     })
@@ -57,27 +57,27 @@ describe('detailsFilter', () => {
       data.slug = undefined
       expect(detailsFilter(data)).toBe(null)
     })
-    
+
     test('address', () => {
       data.address = undefined
       expect(detailsFilter(data)).toBe(null)
     })
-    
+
     test('name', () => {
       data.name = undefined
       expect(detailsFilter(data)).toBe(null)
     })
-    
+
     test('city', () => {
       data.city = undefined
       expect(detailsFilter(data)).toBe(null)
     })
-    
+
     test('country', () => {
       data.country = undefined
       expect(detailsFilter(data)).toBe(null)
     })
-    
+
     test('position', () => {
       data.position = undefined
       expect(detailsFilter(data)).toBe(null)

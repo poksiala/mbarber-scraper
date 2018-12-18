@@ -3,7 +3,7 @@
 const func = require('./index')
 require('dotenv').config()
 
-const { 
+const {
   DATA_URL,
   DB_URL,
   TEST_DB_URL,
@@ -14,7 +14,7 @@ const {
 const context = {
   secrets: {
     DATA_URL,
-    DB_URL: NODE_ENV === 'test' ? TEST_DB_URL : DB_URL 
+    DB_URL: NODE_ENV === 'test' ? TEST_DB_URL : DB_URL
   }
 }
 

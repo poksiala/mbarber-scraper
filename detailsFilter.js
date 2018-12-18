@@ -11,18 +11,18 @@ const weekDays = [
   'saturday'
 ]
 
-/** 
+/**
  * Format open hours data.
- * 
+ *
  * returns object with keys `monday` through `sunday`
  * which have:
  * - Array[Number] containing two numbers (minutes from midnight).
  * - are null if timestamps could not be parsed.
- *  
+ *
  * throws error if parameter week is not array of length 7
  */
 const formatWeek = (week) => {
-  const replacedTimestapms = week.map(({start, end}) => {
+  const replacedTimestapms = week.map(({ start, end }) => {
     const startMinutes = tsToMinutesFromMidnight(start)
     const endMinutes = tsToMinutesFromMidnight(end)
     if (startMinutes === null || endMinutes === null) return null
@@ -30,8 +30,8 @@ const formatWeek = (week) => {
   })
 
   const zipped = zip(weekDays, replacedTimestapms)
-  return zipped.reduce((obj, [key, value]) => 
-    Object.assign({[key]: value}, obj), {})
+  return zipped.reduce((obj, [key, value]) =>
+    Object.assign({ [key]: value }, obj), {})
 }
 
 /**
@@ -49,7 +49,7 @@ const extractAndValidiateStrings = ({ slug, name, city, country, address }) => {
 
 /**
  * Returns an object with basic details about barberShop
- * Returns null if some details are missing. 
+ * Returns null if some details are missing.
  */
 const detailsFilter = (barberShop) => {
   try {
@@ -60,9 +60,9 @@ const detailsFilter = (barberShop) => {
       typeof(lat) === 'string' && typeof(long) === 'string',
       'valid lat and long are missing'
     )
-    
+
     const basicDetails = extractAndValidiateStrings(barberShop)
-    const otherDetails = {...hours, lat, long}
+    const otherDetails = { ...hours, lat, long }
     return Object.assign(basicDetails, otherDetails)
 
   } catch (exception) {

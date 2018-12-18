@@ -32,7 +32,7 @@ describe('shopController', async () => {
     })
 
     describe('With valid input', async () => {
-  
+
       test('create should create new entry', async () => {
         const before = await Shop.countDocuments({})
         await shopController.create(validData)
@@ -52,7 +52,7 @@ describe('shopController', async () => {
 
       test('create should not create new entry when name is missing', async () => {
         const before = await Shop.countDocuments({})
-        const {name, ...invalidData} = validData
+        const { name, ...invalidData } = validData
         await shopController.create(invalidData)
         const after = await Shop.countDocuments({})
         expect(after).toBe(before)
@@ -60,7 +60,7 @@ describe('shopController', async () => {
 
       test('updateOrCreate should not create new entry when name is missing', async () => {
         const before = await Shop.countDocuments({})
-        const {name, ...invalidData} = validData
+        const { name, ...invalidData } = validData
         await shopController.updateOrCreate(invalidData)
         const after = await Shop.countDocuments({})
         expect(after).toBe(before)
@@ -68,7 +68,7 @@ describe('shopController', async () => {
 
       test('create should not create new entry when monday is missing', async () => {
         const before = await Shop.countDocuments({})
-        const {monday, ...invalidData} = validData
+        const { monday, ...invalidData } = validData
         await shopController.create(invalidData)
         const after = await Shop.countDocuments({})
         expect(after).toBe(before)
@@ -76,11 +76,11 @@ describe('shopController', async () => {
 
       test('updateOrCreate should not create new entry when monday is missing', async () => {
         const before = await Shop.countDocuments({})
-        const {monday, ...invalidData} = validData
+        const { monday, ...invalidData } = validData
         await shopController.updateOrCreate(invalidData)
         const after = await Shop.countDocuments({})
         expect(after).toBe(before)
-      })      
+      })
     })
   })
 
@@ -100,7 +100,7 @@ describe('shopController', async () => {
         const after = await Shop.countDocuments({})
         expect(after).toBe(before + 1)
       })
-      
+
       test('updateOrCreate should create new entry', async () => {
         const before = await Shop.countDocuments({})
         await shopController.updateOrCreate(validData2)
@@ -116,7 +116,7 @@ describe('shopController', async () => {
         const after = await Shop.countDocuments({})
         expect(after).toBe(before)
       })
-      
+
       test('updateOrCreate should not create new entry', async () => {
         const before = await Shop.countDocuments({})
         await shopController.updateOrCreate(validData)
@@ -147,7 +147,7 @@ describe('shopController', async () => {
   })
 })
 
-const validData = { 
+const validData = {
   slug: 'slug-one',
   name: 'Name',
   city: 'City',
@@ -164,7 +164,7 @@ const validData = {
   long: '44.444'
 }
 
-const validData2 = { 
+const validData2 = {
   slug: 'slug-two',
   name: 'Name2',
   city: 'City2',

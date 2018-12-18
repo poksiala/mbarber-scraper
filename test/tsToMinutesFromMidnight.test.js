@@ -31,7 +31,7 @@ describe('tsToMinutesFromMidnight', () => {
       expect(ts('11:01 ap')).toBe(null)
     })
   })
-  
+
   describe('24h clock.', () => {
 
     test('Works on valid input', () => {
@@ -85,7 +85,7 @@ describe('tsToMinutesFromMidnight', () => {
       expect(ts('13:00 am')).toBe(null)
       expect(ts('13:00 pm')).toBe(null)
     })
-    
+
     test('null with hour 0', () => {
       expect(ts('00:01 am')).toBe(null)
       expect(ts('00:01 pm')).toBe(null)
@@ -98,6 +98,5 @@ describe('tsToMinutesFromMidnight', () => {
     test('12:30 pm to be 750', () => {
       expect(ts('12:30 pm')).toBe(750)
     })
-    
   })
 })
