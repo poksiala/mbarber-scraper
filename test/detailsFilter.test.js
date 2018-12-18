@@ -20,6 +20,7 @@ describe('detailsFilter', () => {
         sunday: null,
         lat: '60.17553549999999',
         long: '24.80225680000001',
+        timezone: 'Europe/Helsinki'
       }
 
       expect(detailsFilter(data)).toEqual(expected)
@@ -41,7 +42,8 @@ describe('detailsFilter', () => {
         monday: [540, 1020],
         sunday: null,
         lat: '26.200283',
-        long: '-81.800330'
+        long: '-81.800330',
+        timezone: 'America/New_York'
       }
       expect(detailsFilter(data)).toEqual(expected)
     })

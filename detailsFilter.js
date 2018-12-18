@@ -1,4 +1,6 @@
 const assert = require('assert')
+const geoTz = require('geo-tz')
+
 const { tsToMinutesFromMidnight, zip } = require('./utils')
 
 const weekDays = [
@@ -60,9 +62,10 @@ const detailsFilter = (barberShop) => {
       typeof(lat) === 'string' && typeof(long) === 'string',
       'valid lat and long are missing'
     )
-
+    const timezone = geoTz(lat, long)[0]
+    assert(typeof(timezone) === 'string')
     const basicDetails = extractAndValidiateStrings(barberShop)
-    const otherDetails = { ...hours, lat, long }
+    const otherDetails = { ...hours, lat, long, timezone }
     return Object.assign(basicDetails, otherDetails)
 
   } catch (exception) {

@@ -41,6 +41,7 @@ const shopSchema = new mongoose.Schema({
   address: requiredString,
   lat: requiredString,
   long: requiredString,
+  timezone: requiredString,
   monday: dayOfWeek,
   tuesday: dayOfWeek,
   wednesday: dayOfWeek,

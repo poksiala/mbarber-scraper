@@ -161,7 +161,8 @@ const validData = {
   monday: [420, 1080],
   sunday: null,
   lat: '33.333',
-  long: '44.444'
+  long: '44.444',
+  timezone: 'Continent/City'
 }
 
 const validData2 = {
@@ -178,5 +179,6 @@ const validData2 = {
   monday: [420, 1080],
   sunday: null,
   lat: '33.3332',
-  long: '44.4442'
+  long: '44.4442',
+  timezone: 'Continent2/City2'
 }
