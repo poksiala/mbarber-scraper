@@ -5,14 +5,27 @@ const requiredString = {
   required: true
 }
 
-const dayOfWeek = {
-  start: {
-    type: Number
-  },
-  end: {
-    Number
-  },
+const dayValidator = (value) => {
+  if (value === null) return true
+  return (
+    typeof(value) === 'object'
+    && (value.length === 2)
+    && typeof(value[0]) === 'number'
+    && typeof(value[1]) === 'number'
+    && value[0] >= 0
+    && value[1] >= 0
+    && value[1] > value[0]
+    && value[1] < 1440 
+  )
 } 
+
+const dayOfWeek = {
+  type: [Number],
+  validate: {
+    validator: dayValidator,
+    message: 'Week day must be null or number array'
+  }
+}
 
 const shopSchema = new mongoose.Schema({
   slug: {

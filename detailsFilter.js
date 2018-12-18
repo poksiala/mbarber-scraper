@@ -16,8 +16,7 @@ const weekDays = [
  * 
  * returns object with keys `monday` through `sunday`
  * which have:
- * - objects with keys `start` and `end`
- *   containing numbers (minutes from midnight).
+ * - Array[Number] containing two numbers (minutes from midnight).
  * - are null if timestamps could not be parsed.
  *  
  * throws error if parameter week is not array of length 7
@@ -27,10 +26,7 @@ const formatWeek = (week) => {
     const startMinutes = tsToMinutesFromMidnight(start)
     const endMinutes = tsToMinutesFromMidnight(end)
     if (startMinutes === null || endMinutes === null) return null
-    return {
-      start: startMinutes,
-      end: endMinutes
-    }
+    return [startMinutes, endMinutes]
   })
 
   const zipped = zip(weekDays, replacedTimestapms)
