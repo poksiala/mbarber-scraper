@@ -3,11 +3,18 @@
 const func = require('./index')
 require('dotenv').config()
 
-const { DATA_URL } = process.env
+const { 
+  DATA_URL,
+  DB_URL,
+  TEST_DB_URL,
+  NODE_ENV
+} = process.env
+
 
 const context = {
   secrets: {
-    DATA_URL
+    DATA_URL,
+    DB_URL: NODE_ENV === 'test' ? TEST_DB_URL : DB_URL 
   }
 }
 
