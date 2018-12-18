@@ -12,7 +12,7 @@ describe('tsToMinutesFromMidnight', () => {
     })
 
     test('input ""', () => {
-      expect(ts("")).toBe(null)
+      expect(ts('')).toBe(null)
     })
 
     test('input 600', () => {
