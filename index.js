@@ -1,4 +1,6 @@
 const axios = require('axios')
+const queueFilter = require('./queueFilter')
+const detailsFilter = require('./detailsFilter')
 
 module.exports = async (context, cb) => {
   const { DATA_URL } = context.secrets
@@ -8,30 +10,6 @@ module.exports = async (context, cb) => {
 }
 
 const main = async (data) => {
-  return data.map(queueFilter)
+  return data.map(detailsFilter)
 } 
 
-const queueFilter = ({ slug, queue }) => {
-  const { count, names } = queue
-  if (typeof(count) === 'string') {
-    // it probably reads 'closed'
-    return {
-      slug,
-      total: 0,
-      silver: 0,
-      gold: 0,
-      platinium: 0,
-      other: 0
-    }
-  } else {
-    // who knows. field "names" is null atm.
-    return {
-      slug,
-      total: count,
-      silver: 0,
-      gold: 0,
-      platinium: 0,
-      other: 0
-    }
-  }
-}
