@@ -4,3 +4,7 @@ node_js:
   - '10'
 install:
   - npm ci
+notifications:
+  email:
+    on_success: change
+    on_failure: always
