@@ -14,7 +14,7 @@ const tsToMinutesFromMidnight = (ts) => {
     const [ hours, minutes ] = regexpResults.slice(1, 3).map(Number)
     const ampm = regexpResults[3]
     if (minutes < 0 || minutes > 59 || hours < 1 || hours > 12) return null
-    return minutes + 60 * (hours + (ampm === 'pm' ? 12 : 0))
+    return minutes + 60 * ((hours === 12 ? 0 : hours) + (ampm === 'pm' ? 12 : 0))
   } else if (regexp24h.test(ts)) {
     const [ hours, minutes ] = regexp24h.exec(ts).slice(1, 3).map(Number)
     if (minutes < 0 || minutes > 59 || hours < 0 || hours > 23 ) return null

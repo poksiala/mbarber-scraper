@@ -90,5 +90,14 @@ describe('tsToMinutesFromMidnight', () => {
       expect(ts('00:01 am')).toBe(null)
       expect(ts('00:01 pm')).toBe(null)
     })
+
+    test('12:30 am to be 30', () => {
+      expect(ts('12:30 am')).toBe(30)
+    })
+
+    test('12:30 pm to be 750', () => {
+      expect(ts('12:30 pm')).toBe(750)
+    })
+    
   })
 })
