@@ -3,17 +3,21 @@
 const shopController = require('./../controllers/shop')
 const Shop = require('./../models/shop')
 const mongoose = require('mongoose')
-require('dotenv').config()
+const MongoMemoryServer = require('mongodb-memory-server').default
+
+const mongoServer = new MongoMemoryServer()
 
 describe('shopController', async () => {
 
   beforeAll( async () => {
-    await mongoose.connect(process.env.TEST_DB_URL)
+    const dbUri = await mongoServer.getConnectionString()
+    await mongoose.connect(dbUri)
     console.log('connected to the database')
   })
 
   afterAll( async () => {
     await mongoose.connection.close()
+    mongoServer.stop()
     console.log('disconnected database')
   })
 
