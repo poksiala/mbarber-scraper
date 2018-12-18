@@ -31,6 +31,11 @@ describe('shopController', async () => {
       expect(result).toEqual([])
     })
 
+    test('count should work', async() => {
+      const result = await shopController.count()
+      expect(result).toBe(0)
+    })
+
     describe('With valid input', async () => {
 
       test('create should create new entry', async () => {
@@ -90,6 +95,16 @@ describe('shopController', async () => {
       await Shop.remove({})
       const shop = new Shop(validData)
       await shop.save()
+    })
+
+    test('getAll should work', async () => {
+      const result = await shopController.getAll()
+      expect(result.length).toBe(1)
+    })
+
+    test('count should work', async() => {
+      const result = await shopController.count()
+      expect(result).toBe(1)
     })
 
     describe('when slug does not exist in database', async () => {

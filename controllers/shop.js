@@ -30,8 +30,14 @@ const updateOrCreate = async (data) => {
   }
 }
 
+const count = async () => {
+  const result = await Shop.countDocuments({})
+  return result
+}
+
 module.exports = {
   getAll,
   create,
-  updateOrCreate
+  updateOrCreate,
+  count
 }
