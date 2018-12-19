@@ -9,7 +9,7 @@ jobs:
     - stage: deploy
       if: branch = production
       before_script:
-        - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in deploy/.test.enc -out "$HOME/.test" -d
+        - openssl aes-256-cbc -K $encrypted_c30a1ec0d033_key -iv $encrypted_c30a1ec0d033_iv -in deploy/.test.enc -out "$HOME/.test" -d
       script: bash deploy/deploy.sh
 
 notifications:
