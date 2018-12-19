@@ -1,6 +1,6 @@
 const axios = require('axios')
-const detailsFilter = require('./detailsFilter')
-const shopController = require('./controllers/shop')
+const detailsFilter = require('./lib/detailsFilter')
+const shopController = require('./lib/controllers/shop')
 const mongoose = require('mongoose')
 
 module.exports = async (context, cb) => {

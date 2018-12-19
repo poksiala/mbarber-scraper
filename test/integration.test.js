@@ -1,8 +1,8 @@
 const index = require('./../index')
 const MongoMemoryServer = require('mongodb-memory-server').default
-const shopController = require('./../controllers/shop')
+const shopController = require('./../lib/controllers/shop')
 const mongoose = require('mongoose')
-const Shop = require('./../models/shop')
+const Shop = require('./../lib/models/shop')
 
 require('dotenv').config()
 const mongoServer = new MongoMemoryServer()

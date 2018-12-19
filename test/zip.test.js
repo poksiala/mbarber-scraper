@@ -1,4 +1,4 @@
-const zip = require('./../utils').zip
+const zip = require('./../lib/utils').zip
 
 describe('zip', () => {
   describe('should work with valid input', () => {

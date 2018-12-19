@@ -1,4 +1,4 @@
-const detailsFilter = require('./../detailsFilter')
+const detailsFilter = require('./../lib/detailsFilter')
 
 describe('detailsFilter', () => {
   describe('With valid input...', () => {

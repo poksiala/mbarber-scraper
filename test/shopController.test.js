@@ -1,7 +1,7 @@
 /*eslint no-unused-vars: "off"*/
 
-const shopController = require('./../controllers/shop')
-const Shop = require('./../models/shop')
+const shopController = require('./../lib/controllers/shop')
+const Shop = require('./../lib/models/shop')
 const mongoose = require('mongoose')
 const MongoMemoryServer = require('mongodb-memory-server').default
 

@@ -1,4 +1,4 @@
-const ts = require('./../utils').tsToMinutesFromMidnight
+const ts = require('./../lib/utils').tsToMinutesFromMidnight
 
 describe('tsToMinutesFromMidnight', () => {
   describe('On invalid input return null.', () => {
