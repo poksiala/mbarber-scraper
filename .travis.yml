@@ -1,9 +1,17 @@
-language: node_js
-node_js:
-  - '8'
-  - '10'
-install:
-  - npm ci
+jobs:
+  include:
+    - stage: test
+      language: node_js
+      node_js:
+        - '10'
+      install:
+        - npm ci
+    - stage: deploy
+      if: branch = production
+      before_script:
+        - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in dev/.test.enc -out "$HOME/.test" -d
+      script: bash deploy/deploy.sh
+
 notifications:
   email:
     on_success: change
