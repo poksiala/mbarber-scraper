@@ -14,7 +14,7 @@ jobs:
       before_script:
         - openssl aes-256-cbc -K $encrypted_c30a1ec0d033_key -iv $encrypted_c30a1ec0d033_iv -in deploy/.webtask.enc -out "$HOME/.webtask" -d
         - npm install -g wt-cli
-      script: wt-cli update mbarber-scraper index.js
+      script: wt-cli update --bundle mbarber-scraper index.js
 
 notifications:
   email:
